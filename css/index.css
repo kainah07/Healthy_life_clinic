@@ -58,6 +58,7 @@ p, a, li {
 
 
 .appointment-button {
+  text-decoration: none;
   color: black;
   background-color: transparent;
   border: 2px black solid;
@@ -78,11 +79,17 @@ p, a, li {
 }
 
 .login-button {
+  text-decoration: none;
   color: black;
   background-color: transparent;
   border: none;
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 3px
 }
 
 .login-button-scrolled {
