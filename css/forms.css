@@ -16,5 +16,17 @@ h1{
   font-weight: 600 !important;
 }
 
+.login-container {
+  max-width: 500px;
+  width: 20%;
+}
+
+@media (max-width: 992px) {
+
+  .login-container {
+    width: 90%;
+  }
+}
+
 
 
