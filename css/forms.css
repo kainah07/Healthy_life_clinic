@@ -11,19 +11,10 @@ body {
   background: linear-gradient(to left, #30c4cc, #004aad);
 }
 
-h1, h2, h3{
+h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 600 !important;
 }
 
-p, a, li {
-  font-family: 'Montserrat', sans-serif;
-}
 
-.blur-bg {
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  border-radius: 0.5rem;
-}
 
