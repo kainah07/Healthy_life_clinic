@@ -11,18 +11,21 @@
 
   <body class="vh-100 d-flex justify-content-center align-items-center">
 
-    <div class="bg-light p-lg-5 p-md-5 p-3 rounded-4 shadow-lg bg-opacity-50 m-3">
-      <h1 class="text-center mb-lg-5 m-md-5 m-4 mt-lg-0">Make an Appointment</h1>
+    <div class="bg-light text-light p-lg-5 p-md-5 p-4 rounded-4 shadow-lg bg-opacity-25 m-3">
+      <h1 class="text-center mb-lg-5 m-4 mt-lg-0 mt-md-0 border-bottom border-3 pb-3">Make an Appointment</h1>
       <form action="">
-        <div class="mb-3">
+        <div class="row align-items-end">
+          <div class="mb-3 col-lg-6 pe-lg-0">
           <label for="specialization" class="form-label">Specialization:</label>
           <input type="text" name="specialization" id="specialization" placeholder="Enter specialization" class="form-control">
-        </div>
+          </div>
 
-        <div class="mb-3">
-          <button type="button" class="btn btn-primary" id="searchButton">Search Providers</button>
-          <button type="reset" class="btn btn-danger" id="resetButton">Reset</button>
+          <div class="mb-3 col-lg-6 mx-lg-0">
+            <button type="button" class="btn btn-secondary px-lg-4" id="searchButton">Search Providers</button>
+            <button type="reset" class="btn btn-danger" id="resetButton">Reset</button>
+          </div>
         </div>
+        
 
         <div class="mb-3">
           <select name="provider_id" id="provider_id" class="form-select" required>
