@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Life Clinic</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  </head>
+  <body class="bg-light">
+    
+    <nav class="navbar navbar-expand-lg py-lg-2 px-lg-5 sticky-top transition-navbar" id="mainNavbar">
+      <div class="container-fluid">
+        
+        <a id="navBrand" class="navbar-brand fs-4 fw-bold" href="index.php">Healthy Life Clinic</a>
+        <button class="navbar-toggler z-2" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav ">
+            <li class="nav-item fs-5"><a class="nav-link active" href="#homeSection" id="home">Home</a></li>
+            <li class="nav-item fs-5"><a class="nav-link" href="#aboutSection" id="about">About Us</a></li>
+            <li class="nav-item fs-5"><a class="nav-link" href="#servicesSection" id="services">Services</a></li>
+            <li class="nav-item fs-5"><a class="nav-link" href="#providersSection" id="providers">Providers</a></li>
+            <li class="nav-item fs-5"><a class="nav-link" href="#contactSection" id="contact">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="d-none d-lg-flex gap-4 ms-auto">
+          <button id="appointmentButton" class="appointment-button">Book appointment</button>
+          <button id="loginButton" class="login-button">
+            <img id="login-icon" src="images/login-black.svg" alt="" style="height: 20px;"> Login
+          </button>
+        </div>
+
+      </div>
+    </nav>
+    
+    <main>
+      <section id="homeSection" class="hero-section text-white rounded-5 d-flex justify-content-center my-lg-2 mx-lg-5 my-1 mx-3 p-lg-5 p-4">
+        <div id="particles-js"></div> 
+        <div class="d-flex flex-column flex-md-row justify-content-around align-items-center gap-5">
+          <div class="text-lg-start text-center">
+            <h1 class="display-5 fw-bold">Welcome to healthy Life Clinic!</h1>
+            <p class="lead">Your trusted healthcare partner in Wellington</p>
+            <p>Comprehensive primary care tailored to your needs. From checkups to chronic care - we're with you all the way</p>
+            <p class="fw-bold">Schedule your appointment today</p>
+            <button class="cta-appointment-button">Book Now</button>
+          </div>
+          <div>
+              <img id="doctorImage" class="img-fluid shadow" src="images/doctor.svg" alt="Doctor image" width="500" height="500">
+          </div>
+        </div>    
+      </section>
+
+      <section id="aboutSection" class="bg-light p-3 p-lg-4 d-flex justify-content-center align-items-center">       
+        <div class="d-flex justify-content-center align-items-center my-5 container-fluid">
+          <div class="row mx-2 mx-lg-5">
+            <img class="img-fluid col-lg-5 col-md-12 rounded-5" src="images/clinic.jpg" alt="" width="700" height="400">
+            <div class="col-lg-5 col-md-12 container text-center text-lg-start mt-lg-0 mt-5">
+              <h2 class="mb-5 auto-show">About Us</h2>
+              <p class="auto-show fs-1 text-primary">
+                Welcome to <strong>Healthy Life Clinic</strong>, your trusted healthcare partner in Wellington!
+              </p>
+              <p class="auto-show">
+                At Healthy Life Clinic, we are committed to delivering high-quality, patient-centered care with compassion and professionalism. Our experienced team of healthcare providers works closely with you to understand your unique needs and ensure you receive personalized treatment that supports your overall health and well-being.
+              </p>
+
+              <p class="auto-show">
+                Whether you're visiting for a routine check-up or ongoing care, your health is our top priority.
+              </p>
+              <div class="d-flex flex-column justify-content-end auto-show">
+                <a class="link-offset-2 link-underline link-underline-opacity-0" href="">Learn more</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>      
+      </section>  
+
+      <section id="servicesSection" class="container-fluid d-flex justify-content-center align-items-center">
+        <div class="container-fluid">
+          <div>
+            <div class="d-flex flex-column p-5 justify-content-center">
+            <p class="fs-1 fw-bold auto-show">Comprehensive Health Care for Every Patient</p>
+            <p class="auto-show">
+              At Healthy Life Clinic, we provide a full range of medical services designed to support your well-being—helping you stay healthy, active, and confident at every stage of life.
+            </p>
+            <h2 class="text-center mt-5 auto-show">Our Services</h2>
+            </div>        
+            
+            <div class="services-card-frame row gap-lg-2 gap-5 m-md-5 m-lg-0 justify-content-center">
+
+              <div class="services-card col-lg-2">
+                <img class="card-image" src="images/general-practice.jpg" alt="General Practice">
+                <div class="services-card-title p-1 d-flex justify-content-center align-items-center">
+                  <p class="m-2">General Practice</p>
+                </div>
+                <p class="description">Comprehensive healthcare <br> for patients of all ages.</p>
+              </div>
+
+              <div class="services-card col-lg-2">
+                <img class="card-image" src="images/cardiology.jpg" alt="Cardiology">
+                <div class="services-card-title p-1 d-flex justify-content-center align-items-center">
+                  <p class="m-2">Cardiology</p>
+                </div>
+                <p class="description">Expert care for health <br> and cardiovascular conditions.</p>
+              </div>
+
+              <div class="services-card col-lg-2">
+                <img class="card-image" src="images/neurology.jpg" alt="Neurology">
+                <div class="services-card-title p-1 d-flex justify-content-center align-items-center">
+                  <p class="m-2">Neurology</p>
+                </div>
+                <p class="description">Specialized treatment <br> for neurological disorders.</p>
+              </div>
+
+              <div class="services-card col-lg-2">
+                <img class="card-image" src="images/diabetes.jpg" alt="Diabetes">
+                <div class="services-card-title p-1 d-flex justify-content-center align-items-center">
+                  <p class="m-2">Diabetes</p>
+                </div>
+                <p class="description">Personalized support <br> for managing diabetes.</p>
+              </div>
+
+              <div class="services-card col-lg-2">
+                <img class="card-image" src="images/pediatric-care.avif" alt="Pediatric Care">
+                <div class="services-card-title p-1 d-flex justify-content-center align-items-center">
+                  <p class="m-2">Pediatric Care</p>
+                </div>
+                <p class="description">Compassionate care <br> for children's health and development.</p>
+              </div>
+            </div>  
+          </div>
+   
+          <div class="container text-center mt-5">
+            <h2 class="mb-4 text-primary fw-bold auto-show">Why Choose Healthy Life Clinic?</h2>
+            <p class="mb-5 text-muted auto-show">We are committed to providing trusted, compassionate care backed by experience and modern tools.</p>
+
+            <div class="row g-4 auto-show">
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">Experienced Providers</h5>
+                    <p class="card-text">Our skilled healthcare professionals are dedicated to offering the best care possible.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-btle">Patient-Centered Approach</h5>
+                    <p class="card-textody">
+                    <h5 class="card-title">Easy Online Booking</h5>
+                    <p class="card-text">Schedule appointments online anytime—quick, easy, and convenient.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-text">Your health goals come first. We listen, support, and tailor care to your needs.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">Secure Health Records</h5>
+                    <p class="card-text">We keep your information private with advanced digital security protocols.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">Modern, Clean Facilities</h5>
+                    <p class="card-text">Our clinic is equipped with updated tools in a clean and comfortable setting.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">Accessible Wellington Location</h5>
+                    <p class="card-text">We're conveniently located near transport, parking, and key community services.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>         
+      </section>
+
+      <section id="providersSection" class="container-fluid p-5 text-center">
+        <h2 class="mb-5 auto-show">Meet our Doctors</h2>
+        <div class="d-flex justify-content-center align-items-center text-white ">
+          <div class="swiper mySwiper auto-show">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="images/dr1.png" />
+                <h3 class="mt-3">Dr. Alice Williams</h3>
+                <p>Cardiologist</p>
+                <p>With over 15 years of experience, Dr. Williams specializes in heart health and preventive cardiology.</p>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/dr1.png" />
+                <h3 class="mt-3">Dr. Bob Johnson</h3>
+                <p>Neurologist</p>
+                <p>Dr. Johnson is an expert in treating brain and nervous system disorders, focusing on migraines and stroke recovery.</p>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/dr1.png" />
+                <h3 class="mt-3">Dr. Ryan Harper</h3>
+                <p>Diabetes</p>
+                <p>Dr. Harper provides comprehensive care for patients managing Type 1 and Type 2 diabetes.</p>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/dr1.png" />
+                <h3 class="mt-3">Dr. Harry Rogers</h3>
+                <p>Pediatrician</p>
+                <p>Known for his kind approach, Dr. Rogers has been caring for children's health for over a decade.</p>
+              </div>
+              <div class="swiper-slide">
+                <img src="images/dr1.png" />
+                <h3 class="mt-3">Dr. Jenny Mills</h3>
+                <p>General Practitioner</p>
+                <p>Dr. Mills offers full-spectrum primary care and focuses on long-term wellness for families.</p>
+              </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>   
+        </div>    
+      </section>
+
+      <section id="contactSection" class="contact-us-section container-fluid bg-light d-flex justify-content-center align-items-center p-3">
+        <div class="contact-form-container bg-white p-5 rounded-5 shadow auto-show">
+          <h2 class="text-center mb-5">Contact Us</h2>
+
+          <form class="row g-3 m-lg-5">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name">
+            </div>
+
+            <div class="col-md-6">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+            </div>
+
+            <div class="col-md-6">
+              <label for="phoneNumber" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phoneNumber" placeholder="Phone Number">
+            </div>
+
+            <div class="col-md-6">
+              <label for="email" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="email" placeholder="E-mail">
+            </div>
+
+            <div class="col-12 mb-5">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Your message here..."></textarea>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary w-100">Submit</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mx-lg-4 mt-lg-4 mx-md-3 mt-md-3 mx-0 mt-0 p-5 rounded-top-5 text-light">
+      <div class="row">
+        <!-- Clinic Name -->
+        <div class="col-md-4 mb-4">
+          <h4><a class="text-light text-decoration-none" href="index.php">Healthy Life Clinic</a></h4>
+          <p class="mt-2">Caring for your health with compassion and excellence.</p>
+        </div>
+
+        <!-- About Section -->
+        <div class="col-md-4 mb-4">
+          <h5>About</h5>
+          <ul class="list-unstyled">
+            <li>Wellington, New Zealand</li>
+            <li>+2345 678976</li>
+            <li>healthylifeclinic@gmail.com</li>
+          </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a class="text-light text-decoration-none" href="index.php">Home</a></li>
+            <li><a class="text-light text-decoration-none" href="#">About Us</a></li>
+            <li><a class="text-light text-decoration-none" href="#">Services</a></li>
+            <li><a class="text-light text-decoration-none" href="#">Providers</a></li>
+            <li><a class="text-light text-decoration-none" href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="text-center border-top border-light pt-3 mt-4">
+        <p class="mb-1">&copy; 2025 Healthy Life Clinic. All rights reserved.</p>
+        <a class="text-light text-decoration-underline" href="#">Privacy Policy</a>
+      </div>
+    </footer> 
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'components/particles.json', function () {
+      console.log('Particles.js config loaded');
+    });
+  </script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="components/script.js"></script>
+
+</html>

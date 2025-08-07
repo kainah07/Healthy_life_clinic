@@ -1,0 +1,418 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600 !important;
+}
+
+p, a, li {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(to left, #30c4cc, #004aad);
+  position: relative;
+  overflow: hidden;
+  padding: 60px 20px;
+}
+
+.navbar-brand {
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-nav {
+  position: relative;
+  z-index: 2;
+}
+
+.navbar .nav-link:hover {
+  color: #c7c7c7 !important; 
+}
+
+.transition-navbar {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-scrolled {
+  margin: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand-scrolled {
+  color: white !important;
+
+}
+
+
+.appointment-button {
+  color: black;
+  background-color: transparent;
+  border: 2px black solid;
+  border-radius: 5px;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.appointment-button-scrolled {
+  color: rgb(255, 255, 255);
+  border: 2px rgb(255, 255, 255) solid;
+}
+
+.appointment-button:hover {
+  color: #a9a9a9; 
+  border: 2px #a9a9a9 solid;
+}
+
+.login-button {
+  color: black;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  z-index: 2;
+}
+
+.login-button-scrolled {
+  color: rgb(255, 255, 255);
+}
+
+.login-button:hover {
+  color: #a9a9a9;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
+
+#doctorImage {
+  position: relative;
+  z-index: 1;
+  
+  border-radius: 500px;
+}
+
+.cta-appointment-button {
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Styling */
+.services-card {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Image Zoom on Hover */
+.card-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.75);
+  transition: transform 0.5s ease-in-out;
+}
+
+.card-image:hover {
+  transform: scale(1.1);
+}
+
+.services-card-title {
+  font-size: 13px;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  width: 150px;
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  z-index: 2;
+}
+
+.description {
+  color: #ffffff;
+  position: absolute;
+  top: 320px;
+  left: 30px;
+  z-index: 2;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  font-size: 15px;
+
+}
+
+.cta-appointment-button:hover {
+  background-color:  #c7c7c7;
+}
+
+.contact-us-section {
+  height: 100vh;
+  background-image:url('../images/contactBackground.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.contact-form-container {
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 25px;
+}
+
+
+
+.swiper {
+  width: 80%;
+  height: 500px;
+  padding: 50px 0;
+  margin: auto;
+}
+
+
+.swiper-slide {
+  max-width: 500px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 50px;
+  background-color: #0049a8;
+}
+
+.swiper-slide img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid white;
+  padding: 4px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: white !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff !important; /* Optional: highlight active bullet */
+}
+
+footer {
+  background: #050e3b;
+}
+
+
+@keyframes autoShow {
+  from {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.auto-show {
+  animation: autoShow both;
+  animation-timeline: view(70% 5%);
+}
+
+.dr-group-photo {
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range:entry 0% cover 40%;
+}
+
+
+
+@media (max-width: 992px) {
+  .navbar-scrolled {
+    margin: 0px;
+    border-radius: 0px;
+  }
+ 
+
+  .hero-section {
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  .about-us {
+    flex-direction: row-reverse !important;
+  }
+
+  .about-image {
+    width: 20% !important;
+    height: 50px !important;
+  }
+
+  h1 {
+    font-size: 25px !important;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .services-card-title {
+    width: 200px;
+  }
+
+  .services-card-title p{
+    font-size: 20px;
+  }
+
+  .custom-card .description {
+    top: 300px;
+    font-size: 20px;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 420px;
+  }
+
+  .swiper-slide img {
+    width: 70%;
+    height: auto;
+  }
+
+  .swiper-slide h3 {
+    font-size: 18px;
+  }
+
+}
+
+@media (max-width: 581px) {
+
+  #doctorImage {
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-us-section {
+     height: auto !important;
+     min-height: unset !important;
+  }
+
+  .custom-card {
+    height: 500px;
+  }
+
+  .services-card-frame {
+    margin: 20px !important;
+  }
+
+  .custom-card .description {
+    top: 400px;
+    font-size: 18px;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 460px;
+  }
+
+  .swiper h3{
+    font-size: 18px;
+  }
+
+  .swiper p {
+    font-size: 15px;
+  }
+
+  .swiper-slide {  
+    padding: 50px;
+  }
+
+  .swiper-slide img{
+    width: 150px;
+    height: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  /* Targeting the arrows inside the buttons */
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 30px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #ffffff !important; 
+  }
+
+}
+
+@media (max-width: 430px) {
+  .services-card-frame {
+    margin: 20px !important;
+  }
+
+  .custom-card {
+    height: 400px;
+  }
+
+  .services-card-title {
+    width: 140px;
+  }
+
+  .services-card-title p{
+    font-size: 13px;
+  }
+
+  .custom-card .description {
+    top: 320px;
+    font-size: 15px;
+  }
+}
+
+
