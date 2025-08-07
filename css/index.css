@@ -262,8 +262,6 @@ footer {
   animation-range:entry 0% cover 40%;
 }
 
-
-
 @media (max-width: 992px) {
   .navbar-scrolled {
     margin: 0px;
