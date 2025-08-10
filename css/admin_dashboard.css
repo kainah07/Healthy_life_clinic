@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 260px;
+  background: #0d81f5;
+  transition: all 0.5s ease;
+  z-index: 100;
+}
+
+.sidebar.close {
+  width: 78px;
+}
+
+.sidebar .logo {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sidebar .logo i {
+  font-size: 30px;
+  color: #fff;
+  height: 50px;
+  min-width: 73px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.sidebar .logo .logo-name {
+  font-size: 25px;
+  color: #fff;
+  font-weight: 600;
+  opacity: 1;
+  width: auto;
+  overflow: hidden;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar.close .logo .logo-name{
+  width: 0;
+  transition-delay: 0s;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sidebar .navbar-nav {
+  height: 100%;
+  padding-top: 30px;
+}
+
+.sidebar .navbar-nav li {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.sidebar .navbar-nav li:hover {
+  background: #E4E9F7;
+  color: #11101d;
+  transition-delay: 0s;
+}
+
+
+.sidebar .navbar-nav li i span {
+  display: inline;
+  justify-content: unset;
+  align-items: unset;
+}
+
+.sidebar .navbar-nav .link-name {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 1;
+  width: auto;
+  overflow: hidden;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.sidebar.close .link-name {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+
+.sidebar .navbar-nav li i {
+  display: inline-block;
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+}
+
+.sidebar .navbar-nav .link-name {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+main {
+  position: relative;
+  background: #E4E9F7;
+  height: 100vh ;
+  left: 260px;
+  width: calc(100% -260px);
+  transition: all 0.5s ease ;
+}
+
+.sidebar.close ~ main {
+  left:78px;
+  width: calc(100% - 78px);
+}
+
+.dashboard-top-nav {
+  background: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-top-nav i{
+  color: #11101d;
+  font-size: 25px;
+}
+
+.dashboard-top-nav .title {
+  color: #11101d;
+  font-size: 26;
+  font-weight: 600;
+}
