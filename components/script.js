@@ -4,7 +4,9 @@ let isScrolled = false;
 
 // Hover effect for login button icon
 const button = document.querySelector('.login-button');
-const icon = document.getElementById('login-icon');
+const buttonToggle = document.querySelector('.login-button-toggle');
+const icon = document.getElementById('loginIcon');
+const iconToggle = document.getElementById('loginIconToggle');
 
 button.addEventListener('mouseenter', () => {
   icon.src = 'images/login-gray.svg';
@@ -14,12 +16,22 @@ button.addEventListener('mouseleave', () => {
   icon.src = isScrolled ? 'images/login-white.svg' : 'images/login-black.svg';
 });
 
+buttonToggle.addEventListener('mouseenter', () => {
+  iconToggle.src = 'images/login-gray.svg';
+});
+
+buttonToggle.addEventListener('mouseleave', () => {
+  iconToggle.src = isScrolled ? 'images/login-white.svg' : 'images/login-black.svg';
+});
+
 // Scroll handler
 function handleScroll() {
   const navbar = document.getElementById('mainNavbar');
   const navbarBrand = document.getElementById('navBrand');
   const appointmentBtn = document.getElementById('appointmentButton');
+  const appointmentBtnToggle = document.getElementById('appointmentBtnToggle');
   const loginBtn = document.getElementById('loginButton');
+  const loginBtnToggle = document.getElementById('loginBtnToggle');
   const navLinkIDs = ['home', 'about', 'providers', 'services', 'contact'];
 
   // Update scroll state
@@ -29,7 +41,9 @@ function handleScroll() {
   navbar?.classList.toggle('navbar-scrolled', isScrolled);
   navbarBrand?.classList.toggle('text-light', isScrolled);
   appointmentBtn?.classList.toggle('appointment-button-scrolled', isScrolled);
+  appointmentBtnToggle?.classList.toggle('appointment-button-scrolled', isScrolled);
   loginBtn?.classList.toggle('login-button-scrolled', isScrolled);
+  loginBtnToggle?.classList.toggle('login-button-scrolled', isScrolled)
 
   navLinkIDs.forEach(id => {
     const link = document.getElementById(id);
@@ -48,6 +62,10 @@ function handleScroll() {
   // Update icon if not hovering
   if (!button.matches(':hover')) {
     icon.src = isScrolled ? 'images/login-white.svg' : 'images/login-black.svg';
+  } 
+
+  if(!buttonToggle.matches('hover')) {
+    iconToggle.src = isScrolled ? 'images/login-white.svg' : 'images/login-black.svg'
   }
 }
 
