@@ -68,6 +68,15 @@ p, a, li {
   z-index: 2;
 }
 
+.appointment-button-toggle {
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  border: 2px black solid;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 .appointment-button-scrolled {
   color: rgb(255, 255, 255);
   border: 2px rgb(255, 255, 255) solid;
@@ -92,11 +101,26 @@ p, a, li {
   padding: 3px
 }
 
+.login-button-toggle {
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px
+}
+
 .login-button-scrolled {
   color: rgb(255, 255, 255);
 }
 
 .login-button:hover {
+  color: #a9a9a9;
+}
+
+.login-button-toggle:hover {
   color: #a9a9a9;
 }
 
