@@ -27,8 +27,8 @@ body {
 body.dark {
   --background-color: #252525;
   --primary-color: #1f1f1f;
-  --text-color-primary: #ffffff;
-  --text-color-secondary: #858484;
+  --text-color-primary: #b9b9b9;
+  --text-color-secondary: #ffffff;
   --toggle-color: #4e4e4e;
 }
   
@@ -243,7 +243,6 @@ body.dark .switch::before {
 main {
   position: relative;
   background: var(--background-color);
-  height: 100vh ;
   left: 250px;
   width: calc(100% -260px);
   transition: var(--tran-05);
@@ -261,11 +260,52 @@ main {
   align-items: center;
 }
 
+.search-icon {
+  background: var(--background-color);
+  border: none;
+}
+
 body.dark .search-icon {
-  color: #000;
+  background: var(--background-color);
+  border: none;
 }
 
 .dashboard-top-nav i{
   color: var(--text-color-primary);
   font-size: 25px;
+}
+
+
+input.form-control {
+  background: var(--background-color);
+  border: none; 
+}
+
+body.dark input.form-control {
+  background-color: var(--background-color); /* dark background */
+  border: none;      /* white text */
+}
+
+body.dark input.form-control::placeholder {
+  color: var(--text-color-primary);
+}
+
+input.form-control:focus {
+  background-color: var(--background-color);
+  color: var(--text-color-primary);
+  box-shadow: none;
+}
+
+body.dark input.form-control:focus {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.chart-container-monthly {
+  height: 175px;
+}
+
+.chart-container {
+  height: 300px;
 }
