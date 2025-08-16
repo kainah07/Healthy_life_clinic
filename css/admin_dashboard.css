@@ -244,7 +244,7 @@ main {
   position: relative;
   background: var(--background-color);
   left: 250px;
-  width: calc(100% -260px);
+  width: calc(100% - 250px);
   transition: var(--tran-05);
 }
 
@@ -300,6 +300,16 @@ body.dark input.form-control:focus {
   background-color: #1e1e1e;
   color: #ffffff;
   box-shadow: none;
+}
+
+.card {
+  color: var(--text-color-secondary);
+  background: var(--primary-color);
+}
+
+.card .monthly-card{
+  max-width: 300px;
+  flex-shrink: 0;
 }
 
 .chart-container-monthly {
