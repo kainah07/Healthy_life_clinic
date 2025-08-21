@@ -156,7 +156,12 @@ include 'queries.php';
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <script>var monthlyData = <?php echo $monthly_json; ?>; </script>
+    <script>
+    var monthlyData = <?php echo $monthly_json; ?>; 
+    var thisWeekData = <?php echo $this_week_json; ?>;
+    var lastWeekData = <?php echo $last_week_json; ?>;
+
+  </script>
     <script src="components/charts.js"></script>
     <script src="components/admin_dashboard.js"></script>
     
