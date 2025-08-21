@@ -129,6 +129,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Search patients
 $query = "SELECT * FROM patients";
 $result = mysqli_query($conn, $query);
+
+
+// Check if a search term was entered
+$search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : "";
+
+// Default query
+$query_patients = "SELECT * FROM patients";
+
+// If search is not empty, filter results
+if (!empty($search)) {
+    $query_patients .= " WHERE first_name LIKE '%$search%' 
+                         OR last_name LIKE '%$search%' 
+                         OR email LIKE '%$search%' 
+                         OR phone LIKE '%$search%' 
+                         OR patient_id LIKE '%$search%'";
+}
+
+$result = mysqli_query($conn, $query_patients);
 ?>
