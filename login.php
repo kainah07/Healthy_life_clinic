@@ -1,3 +1,48 @@
+<?php
+session_start();
+include 'config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = $_POST['password'];
+    $user_type = $_POST['user_type'];
+
+    if (!in_array($user_type, ['admin', 'patient'])) {
+        die("<p>Invalid user type.</p>");
+    }
+
+    // Determine the correct table
+    $table = ($user_type === 'admin') ? 'admins' : 'patients';
+    $id_column = ($user_type === 'admin') ? 'admin_id' : 'patient_id';
+
+    $query = "SELECT * FROM $table WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, 's', $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row[$id_column];
+            $_SESSION['is_admin'] = ($user_type === 'admin');
+
+            // Redirect based on role
+            header('Location: ' . ($user_type === 'admin' ? 'admin_dashboard.php' : 'patient_dashboard.html'));
+            exit;
+        } else {
+            $error = "Invalid email or password.";
+        }
+    } else {
+        $error = "No user found with that email.";
+    }
+}
+?>
+
+<?php
+mysqli_close($conn);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +56,10 @@
     <div class="login-container shadow-lg px-0 rounded-4 bg-light bg-opacity-25 mx-3  text-light">
       <div class="p-lg-5 p-md-5 p-3">
         <h1 class="text-center mb-lg-4 m-4 mt-lg-0 mt-md-0 border-bottom border-3 pb-3">Login</h1>
-        <form action="">
+        <div class="text-center">
+          <?php if (!empty($error)) echo "<p class='text-danger'>$error</p>"; ?>
+        </div>
+        <form action="login.php" method="POST">
           <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input type="email" name="email" id="email" placeholder="Email Address" class="form-control">
