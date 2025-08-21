@@ -249,8 +249,8 @@ main {
 }
 
 .sidebar.close ~ main {
-  left:78px;
-  width: calc(100% - 78px);
+  left:88px;
+  width: calc(100% - 88px);
 }
 
 .dashboard-top-nav {
@@ -319,3 +319,4 @@ body.dark input.form-control:focus {
 .chart-container {
   height: 300px;
 }
+
