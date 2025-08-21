@@ -72,12 +72,12 @@ mysqli_close($conn);
             <label for="user_type">Login as:</label>
           </div>
           
-        <div class="mb-3">
-          <select name="user_type" id="user_type" class="form-select">
-            <option value="admin">Admin</option>
-            <option value="patient">Patient</option>
-          </select>
-        </div>
+          <div class="mb-3">
+            <select name="user_type" id="user_type" class="form-select">
+              <option value="admin">Admin</option>
+              <option value="patient">Patient</option>
+            </select>
+          </div>
           
           <button type="submit" class="btn btn-primary w-100">Login</button>
         </form>

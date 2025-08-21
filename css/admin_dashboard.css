@@ -258,6 +258,7 @@ main {
   height: 60px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .search-icon {
@@ -321,3 +322,10 @@ body.dark input.form-control:focus {
   height: 300px;
 }
 
+.save-button {
+  margin-top: 30px;
+}
+
+.patients-list-con {
+  height: 300px;
+}

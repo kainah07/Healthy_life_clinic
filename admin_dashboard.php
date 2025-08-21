@@ -43,7 +43,7 @@ include 'queries.php';
           </li>
 
           <li class="nav-link">
-            <a href="manage_patients.html">
+            <a href="manage_patients.php">
               <i class="bi bi-person-lines-fill icon"></i>
               <span class="text nav-text">Patients</span>
             </a>
