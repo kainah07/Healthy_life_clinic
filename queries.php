@@ -76,4 +76,23 @@ $last_week_ordered = reorder_week($last_week_counts);
 // JSON encode for JS
 $this_week_json = json_encode(array_values($this_week_ordered));
 $last_week_json = json_encode(array_values($last_week_ordered));
+
+// Count services by provider specialization
+$query_services = "
+    SELECT providers.specialization AS service, COUNT(*) AS total
+    FROM appointments
+    JOIN providers ON appointments.provider_id = providers.provider_id
+    GROUP BY providers.specialization
+";
+$result_services = mysqli_query($conn, $query_services);
+
+$service_data = [];
+while ($row = mysqli_fetch_assoc($result_services)) {
+    $service_data[] = [
+        "name"  => $row["service"],
+        "value" => (int)$row["total"]
+    ];
+}
+
+$service_json = json_encode($service_data);
 ?>
