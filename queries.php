@@ -95,5 +95,4 @@ while ($row = mysqli_fetch_assoc($result_services)) {
 }
 
 $service_json = json_encode($service_data);
-
 ?>

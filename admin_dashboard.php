@@ -161,7 +161,6 @@ include 'queries.php';
       var thisWeekData = <?php echo $this_week_json; ?>;
       var lastWeekData = <?php echo $last_week_json; ?>;
       var serviceData = <?php echo $service_json; ?>;
-      
     </script>
     <script src="components/charts.js"></script>
     <script src="components/admin_dashboard.js"></script>
