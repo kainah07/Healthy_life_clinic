@@ -1,3 +1,8 @@
+<?php 
+include 'config.php';
+include 'queries.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,15 +12,14 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/admin_dashboard.css">
-    
-    
+   
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
   </head>
   <body>
-    <nav class="sidebar">
+    <nav class="sidebar close">
     <header>
       <a href="" class="image-text ps-3 nav-link">
         <span class="image">
@@ -95,29 +99,29 @@
 
             <div class="col-6 mb-3">
               <div class="card p-3">
-                <p class="fs-5"></p>
-                <p class=""></p>
+                <p class="fs-5">Providers</p>
+                <p class=""><?php echo $total_providers; ?></p>
               </div>
             </div>
 
            <div class="col-6 mb-3">
               <div class="card p-3">
-                <p class="fs-5"></p>
-                <p class=""></p>
+                <p class="fs-5">Total Patients</p>
+                <p class=""><?php echo $total_patients; ?></p>
               </div>
             </div>
 
             <div class="col-6 mb-3">
               <div class="card p-3">
-                <p class="fs-5"></p>
-                <p class=""></p>
+                <p class="fs-5">Appointments Today</p>
+                <p class=""><?php echo $total_new_appointments?></p>
               </div>
             </div>
 
             <div class="col-6 mb-3">
               <div class="card p-3">
-                <p class="fs-5"></p>
-                <p class=""></p>
+                <p class="fs-5">New Patients</p>
+                <p class="">0</p>
               </div>
             </div>
             
@@ -127,7 +131,7 @@
           <div class="col-6">
             <div class="card monthly-card p-3">
               <p class="fs-5">Monthly Appointments</p>
-              <div id="bar-chart" class="chart-container-monthly"></div>
+              <div id="bar-chart-monthly" class="chart-container-monthly"></div>
             </div>
           </div>
         </div>
@@ -152,7 +156,15 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>
+    var monthlyData = <?php echo $monthly_json; ?>; 
+    var thisWeekData = <?php echo $this_week_json; ?>;
+    var lastWeekData = <?php echo $last_week_json; ?>;
+
+  </script>
+    <script src="components/charts.js"></script>
     <script src="components/admin_dashboard.js"></script>
+    
 
   </body>
   
