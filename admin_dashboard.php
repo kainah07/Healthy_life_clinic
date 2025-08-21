@@ -12,17 +12,14 @@ include 'queries.php';
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/admin_dashboard.css">
-    <link rel="stylesheet" href="/Healthy_life_clinic/assets/css/style.css?v=1.0.1">
-
-    
-    
+   
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
   </head>
   <body>
-    <nav class="sidebar">
+    <nav class="sidebar close">
     <header>
       <a href="" class="image-text ps-3 nav-link">
         <span class="image">
@@ -134,7 +131,7 @@ include 'queries.php';
           <div class="col-6">
             <div class="card monthly-card p-3">
               <p class="fs-5">Monthly Appointments</p>
-              <div id="bar-chart" class="chart-container-monthly"></div>
+              <div id="bar-chart-monthly" class="chart-container-monthly"></div>
             </div>
           </div>
         </div>
@@ -159,8 +156,10 @@ include 'queries.php';
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    sc
+    <script>var monthlyData = <?php echo $monthly_json; ?>; </script>
+    <script src="components/charts.js"></script>
     <script src="components/admin_dashboard.js"></script>
+    
 
   </body>
   
