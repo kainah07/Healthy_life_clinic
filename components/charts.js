@@ -72,3 +72,53 @@ color: ['#00c853', '#ff9800'],
   ]
 });
 
+
+// Pie chart: Show services with the most appointments
+var pieChart = echarts.init(document.getElementById('pie-chart'));
+pieChart.setOption({
+  tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {c}'
+    },
+  legend: {
+    bottom: '1%',
+    left: 10, 
+    orient: 'vertical',
+    itemWidth: 25,
+    itemHeight: 12,
+    textStyle: {
+      fontSize: 12
+    }
+  },
+  series: [
+    {
+      name: 'Access From',
+      type: 'pie',
+      radius: ['40%', '60%'],
+      center: ['50%', '32%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 1,
+        borderColor: '#fff',
+        borderWidth: 2
+      },
+      label: {
+        show: true,
+        position: 'inside',
+        formatter: '{d}%',
+        fontSize: 12
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: 14,
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: serviceData,
+    }
+  ]    
+});
