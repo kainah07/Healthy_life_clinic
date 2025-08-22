@@ -131,4 +131,30 @@ if (!$result_providers) {
     die("Error fetching providers: " . mysqli_error($conn));
 }
 
+// Appointments search
+$search_appointments = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : "";
+$query_appointments = "
+    SELECT a.*, 
+           p.first_name AS patient_first_name, p.last_name AS patient_last_name,
+           pr.first_name AS provider_first_name, pr.last_name AS provider_last_name
+    FROM appointments a
+    JOIN patients p ON a.patient_id = p.patient_id
+    JOIN providers pr ON a.provider_id = pr.provider_id
+";
+
+if (!empty($search_appointments)) {
+    $query_appointments .= " WHERE a.reason LIKE '%$search_appointments%' 
+                          OR a.appointment_id LIKE '%$search_appointments%' 
+                          OR p.first_name LIKE '%$search_appointments%' 
+                          OR p.last_name LIKE '%$search_appointments%' 
+                          OR pr.first_name LIKE '%$search_appointments%' 
+                          OR pr.last_name LIKE '%$search_appointments%'";
+}
+
+$result_appointments = mysqli_query($conn, $query_appointments);
+
+if (!$result_appointments) {
+    echo "Error fetching appointments: " . mysqli_error($conn);
+    exit;
+}
 ?>
