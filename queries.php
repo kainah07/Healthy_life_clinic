@@ -97,57 +97,38 @@ while ($row = mysqli_fetch_assoc($result_services)) {
 $service_json = json_encode($service_data);
 
 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['delete'])) {
-        $id = intval($_POST['id']);
-        $query = "DELETE FROM patients WHERE patient_id = $id";
-        mysqli_query($conn, $query);
-    } else {
-        $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
-        $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        echo "Plain Password: " . $password . "<br>";
-        echo "Hashed Password: " . $hashed_password . "<br>";
-
-        if (isset($_POST['id']) && $_POST['id'] !== '') {
-            $id = intval($_POST['id']);
-            $query = "UPDATE patients SET first_name='$first_name', last_name='$last_name', email='$email', phone='$phone', password='$hashed_password' WHERE patient_id=$id";
-        } else {
-            $query = "INSERT INTO patients (first_name, last_name, email, phone, password) VALUES ('$first_name', '$last_name', '$email', '$phone', '$hashed_password')";
-        }
-
-        if (mysqli_query($conn, $query)) {
-            echo "<p>Patient saved successfully.</p>";
-        } else {
-            echo "<p>Error: " . mysqli_error($conn) . "</p>";
-        }
-    }
-}
-
-// Search patients
-$query = "SELECT * FROM patients";
-$result = mysqli_query($conn, $query);
-
-
-// Check if a search term was entered
-$search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : "";
-
-// Default query
+// Patients search
+$search_patients = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : "";
 $query_patients = "SELECT * FROM patients";
 
-// If search is not empty, filter results
-if (!empty($search)) {
-    $query_patients .= " WHERE first_name LIKE '%$search%' 
-                         OR last_name LIKE '%$search%' 
-                         OR email LIKE '%$search%' 
-                         OR phone LIKE '%$search%' 
-                         OR patient_id LIKE '%$search%'";
+if (!empty($search_patients)) {
+    $query_patients .= " WHERE first_name LIKE '%$search_patients%' 
+                         OR last_name LIKE '%$search_patients%' 
+                         OR email LIKE '%$search_patients%' 
+                         OR phone LIKE '%$search_patients%' 
+                         OR patient_id LIKE '%$search_patients%'";
 }
 
-$result = mysqli_query($conn, $query_patients);
+$result_patients = mysqli_query($conn, $query_patients);
+if (!$result_patients) {
+    die("Error fetching patients: " . mysqli_error($conn));
+}
+
+
+// Providers search
+$search_providers = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : "";
+$query_providers = "SELECT * FROM providers";
+
+if (!empty($search_providers)) {
+    $query_providers .= " WHERE first_name LIKE '%$search_providers%' 
+                          OR last_name LIKE '%$search_providers%' 
+                          OR specialization LIKE '%$search_providers%' 
+                          OR provider_id LIKE '%$search_providers%'";
+}
+
+$result_providers = mysqli_query($conn, $query_providers);
+if (!$result_providers) {
+    die("Error fetching providers: " . mysqli_error($conn));
+}
+
 ?>

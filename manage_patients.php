@@ -5,8 +5,8 @@ include 'queries.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['delete'])) {
         $id = intval($_POST['id']);
-        $query = "DELETE FROM patients WHERE patient_id = $id";
-        if (mysqli_query($conn, $query)) {
+        $query_patients = "DELETE FROM patients WHERE patient_id = $id";
+        if (mysqli_query($conn, $query_patients)) {
             $_SESSION['message'] = "Patient deleted successfully";
             $_SESSION['msg_type'] = "danger";
         } else {
@@ -25,18 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['id']) && $_POST['id'] !== '') {
             $id = intval($_POST['id']);
-            $query = "UPDATE patients 
+            $query_patients = "UPDATE patients 
                       SET first_name='$first_name', last_name='$last_name', 
                           email='$email', phone='$phone', password='$hashed_password' 
                       WHERE patient_id=$id";
             $successMsg = "Patient updated successfully";
         } else {
-            $query = "INSERT INTO patients (first_name, last_name, email, phone, password) 
+            $query_patients = "INSERT INTO patients (first_name, last_name, email, phone, password) 
                       VALUES ('$first_name', '$last_name', '$email', '$phone', '$hashed_password')";
             $successMsg = "Patient added successfully";
         }
 
-        if (mysqli_query($conn, $query)) {
+        if (mysqli_query($conn, $query_patients)) {
             $_SESSION['message'] = $successMsg;
             $_SESSION['msg_type'] = "success";
         } else {
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </li>
 
           <li class="nav-link">
-            <a href="">
+            <a href="manage_providers.php">
               <i class="bi bi-clipboard2-pulse icon"></i>
               <span class="text nav-text">Providers</span>
             </a>
@@ -211,8 +211,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <th>Actions</th>
               </tr>
 
-              <?php if (mysqli_num_rows($result) > 0) { ?>
-                  <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+              <?php if (mysqli_num_rows($result_patients) > 0) { ?>
+                  <?php while ($row = mysqli_fetch_assoc($result_patients)) { ?>
                       <tr>
                           <td><?php echo $row['patient_id']; ?></td>
                           <td><?php echo $row['first_name']; ?></td>

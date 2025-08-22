@@ -36,7 +36,7 @@ include 'queries.php';
       <div class="menu mt-2">
         <ul class="menu-links ">
           <li class="nav-link">
-            <a href="">
+            <a href="admin_dashboard.php">
               <i class="bi bi-house icon"></i>
               <span class="text nav-text">Dashboard</span>
             </a>
@@ -50,7 +50,7 @@ include 'queries.php';
           </li>
 
           <li class="nav-link">
-            <a href="">
+            <a href="manage_providers.php">
               <i class="bi bi-clipboard2-pulse icon"></i>
               <span class="text nav-text">Providers</span>
             </a>
