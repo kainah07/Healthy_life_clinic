@@ -44,15 +44,22 @@ include 'queries.php';
 
           <li class="nav-link">
             <a href="manage_patients.php">
-              <i class="bi bi-person-lines-fill icon"></i>
+              <i class="bi bi-person-vcard icon"></i>
               <span class="text nav-text">Patients</span>
             </a>
           </li>
 
           <li class="nav-link">
             <a href="manage_providers.php">
-              <i class="bi bi-clipboard2-pulse icon"></i>
+              <i class="bi bi-heart-pulse icon"></i>
               <span class="text nav-text">Providers</span>
+            </a>
+          </li>
+
+          <li class="nav-link">
+            <a href="list_appointment.php">
+              <i class="bi bi-clipboard2-pulse icon"></i>
+              <span class="text nav-text">Appointments</span>
             </a>
           </li>
 

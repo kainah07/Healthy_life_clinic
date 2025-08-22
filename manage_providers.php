@@ -102,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </li>
 
           <li class="nav-link">
-            <a href="appointment_details.php">
+            <a href="list_appointment.php">
               <i class="bi bi-clipboard2-pulse icon"></i>
               <span class="text nav-text">Appointments</span>
             </a>
