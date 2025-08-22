@@ -84,13 +84,9 @@ include 'queries.php';
   <main>
       <div class="dashboard-top-nav">
         <i class="bi bi-list mx-3 toggle"></i>
-        <form action="" class="d-flex" role="search">
-          <div class="input-group m-3">
-            <i class="bi bi-search input-group-text search-icon"></i>
-            <input class="form-control" type="search" name="search" id="search" placeholder="Search" aria-label="Search">
-             <button class="btn  btn-primary btn-sm">Search</button>
-          </div>          
-        </form>
+        <div class="me-5">
+          <p class="mt-3 fs-4">Admin Dashboard</p>
+        </div>
       </div>
 
       <section class="container-fluid my-5 px-5">

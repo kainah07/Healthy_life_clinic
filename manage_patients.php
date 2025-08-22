@@ -1,6 +1,53 @@
 <?php 
 include 'config.php';
 include 'queries.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['delete'])) {
+        $id = intval($_POST['id']);
+        $query = "DELETE FROM patients WHERE patient_id = $id";
+        if (mysqli_query($conn, $query)) {
+            $_SESSION['message'] = "Patient deleted successfully";
+            $_SESSION['msg_type'] = "danger";
+        } else {
+            $_SESSION['message'] = "Error deleting patient: " . mysqli_error($conn);
+            $_SESSION['msg_type'] = "danger";
+        }
+        header("Location: manage_patients.php");
+        exit;
+    } else {
+        $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
+        $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        if (isset($_POST['id']) && $_POST['id'] !== '') {
+            $id = intval($_POST['id']);
+            $query = "UPDATE patients 
+                      SET first_name='$first_name', last_name='$last_name', 
+                          email='$email', phone='$phone', password='$hashed_password' 
+                      WHERE patient_id=$id";
+            $successMsg = "Patient updated successfully";
+        } else {
+            $query = "INSERT INTO patients (first_name, last_name, email, phone, password) 
+                      VALUES ('$first_name', '$last_name', '$email', '$phone', '$hashed_password')";
+            $successMsg = "Patient added successfully";
+        }
+
+        if (mysqli_query($conn, $query)) {
+            $_SESSION['message'] = $successMsg;
+            $_SESSION['msg_type'] = "success";
+        } else {
+            $_SESSION['message'] = "Error: " . mysqli_error($conn);
+            $_SESSION['msg_type'] = "danger";
+        }
+
+        header("Location: manage_patients.php");
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -104,6 +151,15 @@ include 'queries.php';
       </div>
 
       <section class="container-fluid my-5 px-5">
+         <!-- Bootstrap Alert Messages -->
+        <?php if (isset($_SESSION['message'])): ?>
+          <div class="alert alert-<?php echo $_SESSION['msg_type']; ?> alert-dismissible fade show" role="alert">
+            <?php echo $_SESSION['message']; ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <?php unset($_SESSION['message']); unset($_SESSION['msg_type']); ?>
+        <?php endif; ?>
+        
         <div class="card p-3 edit-con mb-3">
           <p class="fs-4 fw-medium">Add/Edit Patient</p>
           <form method="POST" action="manage_patients.php">
@@ -131,7 +187,7 @@ include 'queries.php';
 
               <div class="col-2">
                 <label for="password" class="form-label">Password:</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
               </div>
 
               <div class="col-1 text-end m-0 p-0">
@@ -146,32 +202,45 @@ include 'queries.php';
           <p class="fs-4 fw-medium">Patients</p>
           <div class="table-responsive">
           <table class="table">
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Actions</th>
-            </tr>
-            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-            <tr>
-                <td><?php echo $row['patient_id']; ?></td>
-                <td><?php echo $row['first_name']; ?></td>
-                <td><?php echo $row['last_name']; ?></td>
-                <td><?php echo $row['email']; ?></td>
-                <td><?php echo $row['phone']; ?></td>
-                <td>
-                    <a href='view_patient.php?id=<?php echo $row['patient_id']; ?>' class='btn btn-info mb-lg-0 mb-2'>View</a>
-                    <button class='btn btn-warning mb-lg-0 mb-2' onclick="editPatient(<?php echo $row['patient_id']; ?>, '<?php echo $row['first_name']; ?>', '<?php echo $row['last_name']; ?>', '<?php echo $row['email']; ?>', '<?php echo $row['phone']; ?>')">Edit</button>
-                    <form method="POST" action="manage_patients.php" style="display:inline;">
-                        <input type="hidden" name="id" value="<?php echo $row['patient_id']; ?>">
-                        <button class='btn btn-danger mb-lg-0 mb-2' type="submit" name="delete">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            <?php } ?>
-            </table>
+              <tr>
+                  <th>ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Actions</th>
+              </tr>
+
+              <?php if (mysqli_num_rows($result) > 0) { ?>
+                  <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                      <tr>
+                          <td><?php echo $row['patient_id']; ?></td>
+                          <td><?php echo $row['first_name']; ?></td>
+                          <td><?php echo $row['last_name']; ?></td>
+                          <td><?php echo $row['email']; ?></td>
+                          <td><?php echo $row['phone']; ?></td>
+                          <td>
+                              <a href='view_patient.php?id=<?php echo $row['patient_id']; ?>' class='btn btn-info mb-lg-0 mb-2'>View</a>
+                              <button class='btn btn-warning mb-lg-0 mb-2' 
+                                  onclick="editPatient(<?php echo $row['patient_id']; ?>, 
+                                  '<?php echo $row['first_name']; ?>', 
+                                  '<?php echo $row['last_name']; ?>', 
+                                  '<?php echo $row['email']; ?>', 
+                                  '<?php echo $row['phone']; ?>')">Edit</button>
+                              <form method="POST" action="manage_patients.php" style="display:inline;">
+                                  <input type="hidden" name="id" value="<?php echo $row['patient_id']; ?>">
+                                  <button class='btn btn-danger mb-lg-0 mb-2' type="submit" name="delete">Delete</button>
+                              </form>
+                          </td>
+                      </tr>
+                  <?php } ?>
+              <?php } else { ?>
+                  <tr>
+                      <td colspan="6" class="text-center text-danger">No patients found.</td>
+                  </tr>
+              <?php } ?>
+          </table>
+
           </div>
         </div>
       
@@ -180,17 +249,7 @@ include 'queries.php';
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     <script src="components/admin_dashboard.js"></script>
-
-    <script>
-        function editPatient(id, firstName, lastName, email, phone) {
-            document.getElementById('patient_id').value = id;
-            document.getElementById('first_name').value = firstName;
-            document.getElementById('last_name').value = lastName;
-            document.getElementById('email').value = email;
-            document.getElementById('phone').value = phone;
-        }
-        
-    </script>
+    <script src="components/manage_patient.js"></script>
 
   </body>
   
