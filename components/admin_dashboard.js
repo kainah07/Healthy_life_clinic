@@ -1,30 +1,17 @@
- const body = document.querySelector('body'),
-      sidebar = body.querySelector('.sidebar'),
-      main = body.querySelector('main'),
-      toggle = body.querySelector('.toggle'),
-      modeSwitch = body.querySelector('.toggle-switch'),
-      modeText = body.querySelector('.mode-text');
+document.addEventListener("DOMContentLoaded", function () {
 
-// Check saved theme on page load
-if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark');
-    modeText.innerText = 'Light Mode';
-} else {
-    modeText.innerText = 'Dark Mode';
-}
+    const sidebar = document.querySelector('.sidebar');
+    const toggle = document.querySelector('.toggle');
 
-toggle.addEventListener('click', () => {
-  sidebar.classList.toggle('close');
-})
+    // Debug logs
+    console.log("JS loaded");
+    console.log("toggle =", toggle);
+    console.log("sidebar =", sidebar);
 
-modeSwitch.addEventListener('click', () => {
-  body.classList.toggle('dark');
-
-  if(body.classList.contains('dark')) {
-      modeText.innerText = 'Light Mode';
-      localStorage.setItem('theme', 'dark');
-  } else {
-    modeText.innerText = 'Dark Mode'
-    localStorage.setItem('theme', 'light');
-  }
+    // Sidebar toggle only
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            sidebar.classList.toggle('close');
+        });
+    }
 });

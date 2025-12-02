@@ -51,6 +51,7 @@ mysqli_close($conn);
     <title>Login</title>
     <link rel="stylesheet" href="css/forms.css">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   </head>
   <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="login-container shadow-lg px-0 rounded-4 bg-light bg-opacity-25 mx-3  text-light">
@@ -65,8 +66,13 @@ mysqli_close($conn);
             <input type="email" name="email" id="email" placeholder="Email Address" class="form-control">
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+            <label for="password" class="form-label">Password:</label>
+             <div class="input-group">
+              <input type="password" class="form-control" name="password" id="patient_password" placeholder="Password" autocomplete="new-password">
+               <span class="input-group-text" onclick="togglePassword('patient_password', this)" style="cursor: pointer;">
+                <i class="bi bi-eye"></i>
+              </span>
+            </div>
           </div>
           <div class="mb-3">
             <label for="user_type">Login as:</label>
@@ -84,5 +90,23 @@ mysqli_close($conn);
         <p class="mt-4 text-center">Don't have an account? <a href="register.html">Register</a></p>
       </div>
     </div>
+
+    <script>
+      function togglePassword(fieldId, el) {
+        const input = document.getElementById(fieldId);
+        const icon = el.querySelector("i");
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("bi-eye");
+          icon.classList.add("bi-eye-slash");
+        } else {
+          input.type = "password";
+          icon.classList.remove("bi-eye-slash");
+          icon.classList.add("bi-eye");
+        }
+      }
+    </script>
+
+
   </body>
 </html>

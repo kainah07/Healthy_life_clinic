@@ -54,7 +54,7 @@ include 'queries.php'
               </a>
             </li>
 
-            <li class="nav-link">
+            <li class="nav-link active">
               <a href="list_appointment.php">
                 <i class="bi bi-clipboard2-pulse icon"></i>
                 <span class="text nav-text">Appointments</span>
@@ -72,16 +72,6 @@ include 'queries.php'
             </a>
           </li>
 
-          <li class="mode">
-            <div class="moon-sun">
-              <i class="bi bi-moon icon moon"></i>
-              <i class="bi bi-sun icon sun"></i>
-            </div>
-            <span class="mode-text text">Dark Mode</span>
-            <div class="toggle-switch">
-              <span class="switch"></span>
-            </div>
-          </li>
         </div>
       </div>
     </nav>
@@ -89,7 +79,7 @@ include 'queries.php'
     <main>
       <div class="dashboard-top-nav">
         <div class="d-flex align-items-center">
-          <i class="bi bi-list mx-3 toggle"></i>
+          <i class="bi bi-list toggle d-none d-lg-block menu mx-2"></i>
          <form action="" method="GET" class="d-flex" role="search">
           <div class="input-group m-3">
             <i class="bi bi-search input-group-text search-icon"></i>
