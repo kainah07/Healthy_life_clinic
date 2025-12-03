@@ -23,12 +23,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($row = mysqli_fetch_assoc($result)) {
         if (password_verify($password, $row['password'])) {
-            $_SESSION['user_id'] = $row[$id_column];
-            $_SESSION['is_admin'] = ($user_type === 'admin');
+              $_SESSION['user_id'] = $row[$id_column];
+              $_SESSION['is_admin'] = ($user_type === 'admin');
 
-            // Redirect based on role
-            header('Location: ' . ($user_type === 'admin' ? 'admin_dashboard.php' : 'patient_dashboard.html'));
-            exit;
+              // If patient login → store names
+              if ($user_type === 'patient') {
+                  $_SESSION['first_name'] = $row['first_name'];
+                  $_SESSION['last_name']  = $row['last_name'];
+              }
+
+              // Redirect based on role
+              header('Location: ' . ($user_type === 'admin' ? 'admin_dashboard.php' : 'patient_dashboard.php'));
+              exit;
+
         } else {
             $error = "Invalid email or password.";
         }

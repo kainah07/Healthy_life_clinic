@@ -68,7 +68,7 @@ include 'queries.php';
 
       <div class="bottom-content">
         <li class="">
-          <a href="">
+          <a href="logout.php">
             <i class="bi bi-box-arrow-left icon"></i>
             <span class="text nav-text">Logout</span>
           </a>
@@ -90,7 +90,7 @@ include 'queries.php';
          <ul class="navbar-nav">
 
            <li class="nav-item">
-            <a href="#" class="nav-link d-flex align-items-center">
+            <a href="logout.php" class="nav-link d-flex align-items-center">
               <i class="bi bi-box-arrow-left me-2"></i>
               <span class="text">Logout</span>
             </a>
@@ -160,7 +160,7 @@ include 'queries.php';
         </div>
 
         <div>
-          
+
         </div>
         
       </section>
