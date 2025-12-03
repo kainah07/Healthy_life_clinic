@@ -79,7 +79,7 @@ $result_medical_record = mysqli_query($conn, $query_medical_record);
           </li>
 
           <li class="nav-link">
-            <a href="">
+            <a href="make_appointment.php">
               <i class="bi bi-calendar-event icon"></i>
               <span class="text nav-text">Book appointment</span>
             </a>
